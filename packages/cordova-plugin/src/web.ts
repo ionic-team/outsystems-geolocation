@@ -1,13 +1,28 @@
 import { require } from "cordova";
-import { ClearWatchOptions, PluginError, Position, PositionOptions } from "./definitions";
+import { ClearWatchOptions, OSGLOCPosition, PluginError, Position, PositionOptions } from "./definitions";
 import { ClearWatchOptionsDefault, PositionOptionsDefault } from "./defaults";
 
 var exec = require('cordova/exec');
 
 function getCurrentPosition(options: PositionOptions, success: (output: Position) => void, error: (error: PluginError) => void): void {
-  options = options || PositionOptionsDefault;
+  options = { ...PositionOptionsDefault, ...options };
 
-  exec(success, error, 'OSGeolocation', 'getCurrentPosition', [options]);
+  let convertOnSuccess = (position: OSGLOCPosition) => {
+    let convertedPosition: Position = {
+      coords: {
+        latitude: position.latitude,
+        longitude: position.longitude,
+        altitude: position.altitude,
+        accuracy: position.accuracy,
+        heading: position.heading,
+        speed: position.speed,
+        altitudeAccuracy: position.accuracy
+      },
+      timestamp: position.timestamp,
+    }
+    success(convertedPosition)
+  }
+  exec(convertOnSuccess, error, 'OSGeolocation', 'getCurrentPosition', [options]);
 }
 
 function watchPosition(options: PositionOptions, success: (output: string) => void, error: (error: PluginError) => void): void {
