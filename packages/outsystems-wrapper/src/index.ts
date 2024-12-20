@@ -1,11 +1,9 @@
-import { ClearWatchOptions, LegacyOSPosition, PluginError, Position, PositionOptions } from "../../cordova-plugin/src/definitions";
-import { ClearWatchOptionsDefault, PositionOptionsDefault } from "../../cordova-plugin/src/defaults";
+import { OSGLOCPosition, PluginError, Position, PositionOptions } from "../../cordova-plugin/src/definitions";
 
 class OSGeolocation {
     #lastPosition: Position | null = null
 
     getCurrentPosition(success: (position: Position) => void, error: (err: PluginError | GeolocationPositionError) => void, options: PositionOptions): void {
-        options = options || PositionOptionsDefault
         // @ts-ignore
         if (typeof (cordova) === 'undefined' && typeof (CapacitorUtils) === 'undefined') {
             // if we're not in cordova / capacitor land, we call the good old Web API
@@ -14,13 +12,14 @@ class OSGeolocation {
         }
 
         let timeoutID: ReturnType<typeof setTimeout> | undefined;
-        const successCallback = (position: Position | LegacyOSPosition) => {
+        const successCallback = (position: Position | OSGLOCPosition) => {
             if (typeof (timeoutID) == 'undefined') {
                 // Timeout already happened, or native fired error callback for
                 // this geo request.
                 // Don't continue with success callback.
                 return;
             }
+
             if (this.#isLegacyPosition(position)) {
                 position = this.#convertFromLegacy(position)
             }
@@ -67,12 +66,17 @@ class OSGeolocation {
                 // @ts-ignore
                 navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
             }
-
         }
-
     }
 
-    // Returns a timeout failure, closed over a specified timeout value and error callback.
+    /**
+     * Returns a timeout failure, closed over a specified timeout value and error callback.
+     * @param onError the error callback
+     * @param timeout timeout in ms
+     * @param isWatch returns `true` if the caller of this function was the from the watch flow
+     * @param id the watch ID
+     * @returns the timeout's ID
+     */
     #createTimeout(onError: (error: PluginError) => void, timeout: number | undefined, isWatch: boolean, id: number | null): ReturnType<typeof setTimeout> {
         let t = setTimeout(() => {
             if (isWatch === true) {
@@ -86,7 +90,12 @@ class OSGeolocation {
         return t;
     }
 
-    #convertFromLegacy(lPosition: LegacyOSPosition): Position {
+    /**
+     * 
+     * @param lPosition the position in its' legacy 
+     * @returns new Position instance
+     */
+    #convertFromLegacy(lPosition: OSGLOCPosition): Position {
         return {
             coords: {
                 latitude: lPosition.latitude,
@@ -101,8 +110,14 @@ class OSGeolocation {
         }
     }
 
-    #isLegacyPosition(position: Position | LegacyOSPosition): position is LegacyOSPosition {
-        return (position as LegacyOSPosition).velocity !== undefined;
+    /**
+     * In previous versions of the plugin, the native side would return speed as `velocity`
+     * From now on, it returns the same value under `speed`
+     * @param position the position to verify
+     * @returns true if the object contains the `velocity` property
+     */
+    #isLegacyPosition(position: Position | OSGLOCPosition): position is OSGLOCPosition {
+        return (position as OSGLOCPosition).velocity !== undefined;
     }
 }
 
