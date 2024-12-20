@@ -1,0 +1,137 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OSGeolocationLib
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
+import CoreLocation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum OSGLOCAuthorisation {
+  case notDetermined
+  case restricted
+  case denied
+  case granted
+  public static func == (a: OSGeolocationLib.OSGLOCAuthorisation, b: OSGeolocationLib.OSGLOCAuthorisation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct OSGLOCPositionModel : Swift.Equatable {
+  public var altitude: Swift.Double {
+    get
+  }
+  public var course: Swift.Double {
+    get
+  }
+  public var horizontalAccuracy: Swift.Double {
+    get
+  }
+  public var latitude: Swift.Double {
+    get
+  }
+  public var longitude: Swift.Double {
+    get
+  }
+  public var speed: Swift.Double {
+    get
+  }
+  public var timestamp: Swift.Double {
+    get
+  }
+  public var verticalAccuracy: Swift.Double {
+    get
+  }
+  public static func == (a: OSGeolocationLib.OSGLOCPositionModel, b: OSGeolocationLib.OSGLOCPositionModel) -> Swift.Bool
+}
+extension OSGeolocationLib.OSGLOCPositionModel {
+  public static func create(from location: CoreLocation.CLLocation) -> OSGeolocationLib.OSGLOCPositionModel
+}
+public enum OSGLOCAuthorisationRequestType {
+  case whenInUse
+  case always
+  public static func == (a: OSGeolocationLib.OSGLOCAuthorisationRequestType, b: OSGeolocationLib.OSGLOCAuthorisationRequestType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias OSGLOCService = OSGeolocationLib.OSGLOCAuthorisationHandler & OSGeolocationLib.OSGLOCMonitorLocationHandler & OSGeolocationLib.OSGLOCServicesChecker & OSGeolocationLib.OSGLOCSingleLocationHandler
+public struct OSGLOCServicesValidator : OSGeolocationLib.OSGLOCServicesChecker {
+  public init()
+  public func areLocationServicesEnabled() -> Swift.Bool
+}
+@objc public class OSGLOCManagerWrapper : ObjectiveC.NSObject, OSGeolocationLib.OSGLOCService {
+  @Combine.Published @_projectedValueProperty($authorisationStatus) public var authorisationStatus: OSGeolocationLib.OSGLOCAuthorisation {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  public var $authorisationStatus: Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public var authorisationStatusPublisher: Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($currentLocation) public var currentLocation: OSGeolocationLib.OSGLOCPositionModel? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  public var $currentLocation: Combine.Published<OSGeolocationLib.OSGLOCPositionModel?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public var currentLocationPublisher: Combine.Published<OSGeolocationLib.OSGLOCPositionModel?>.Publisher {
+    get
+  }
+  public init(locationManager: CoreLocation.CLLocationManager = .init(), servicesChecker: any OSGeolocationLib.OSGLOCServicesChecker = OSGLOCServicesValidator())
+  public func requestAuthorisation(withType authorisationType: OSGeolocationLib.OSGLOCAuthorisationRequestType)
+  public func startMonitoringLocation()
+  public func stopMonitoringLocation()
+  public func requestSingleLocation()
+  public func updateConfiguration(_ configuration: OSGeolocationLib.OSGLOCConfigurationModel)
+  public func areLocationServicesEnabled() -> Swift.Bool
+  @objc deinit
+}
+extension OSGeolocationLib.OSGLOCManagerWrapper : CoreLocation.CLLocationManagerDelegate {
+  @objc dynamic public func locationManagerDidChangeAuthorization(_ manager: CoreLocation.CLLocationManager)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
+}
+public protocol OSGLOCServicesChecker {
+  func areLocationServicesEnabled() -> Swift.Bool
+}
+public protocol OSGLOCAuthorisationHandler {
+  var authorisationStatus: OSGeolocationLib.OSGLOCAuthorisation { get }
+  var authorisationStatusPublisher: Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher { get }
+  func requestAuthorisation(withType authorisationType: OSGeolocationLib.OSGLOCAuthorisationRequestType)
+}
+public protocol OSGLOCLocationHandler {
+  var currentLocation: OSGeolocationLib.OSGLOCPositionModel? { get }
+  var currentLocationPublisher: Combine.Published<OSGeolocationLib.OSGLOCPositionModel?>.Publisher { get }
+  func updateConfiguration(_ configuration: OSGeolocationLib.OSGLOCConfigurationModel)
+}
+public protocol OSGLOCSingleLocationHandler : OSGeolocationLib.OSGLOCLocationHandler {
+  func requestSingleLocation()
+}
+public protocol OSGLOCMonitorLocationHandler : OSGeolocationLib.OSGLOCLocationHandler {
+  func startMonitoringLocation()
+  func stopMonitoringLocation()
+}
+public struct OSGLOCConfigurationModel {
+  public init(enableHighAccuracy: Swift.Bool, minimumUpdateDistanceInMeters: Swift.Double? = nil)
+}
+extension OSGeolocationLib.OSGLOCAuthorisation : Swift.Equatable {}
+extension OSGeolocationLib.OSGLOCAuthorisation : Swift.Hashable {}
+extension OSGeolocationLib.OSGLOCAuthorisationRequestType : Swift.Equatable {}
+extension OSGeolocationLib.OSGLOCAuthorisationRequestType : Swift.Hashable {}

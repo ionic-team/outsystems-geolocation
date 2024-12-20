@@ -1,0 +1,2436 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "OSGeolocationLib"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCAuthorisation",
+        "printedName": "OSGLOCAuthorisation",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "notDetermined",
+            "printedName": "notDetermined",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OSGeolocationLib.OSGLOCAuthorisation.Type) -> OSGeolocationLib.OSGLOCAuthorisation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCAuthorisation",
+                        "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                        "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO13notDeterminedyA2CmF",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO13notDeterminedyA2CmF",
+            "moduleName": "OSGeolocationLib"
+          },
+          {
+            "kind": "Var",
+            "name": "restricted",
+            "printedName": "restricted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OSGeolocationLib.OSGLOCAuthorisation.Type) -> OSGeolocationLib.OSGLOCAuthorisation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCAuthorisation",
+                        "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                        "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO10restrictedyA2CmF",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO10restrictedyA2CmF",
+            "moduleName": "OSGeolocationLib"
+          },
+          {
+            "kind": "Var",
+            "name": "denied",
+            "printedName": "denied",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OSGeolocationLib.OSGLOCAuthorisation.Type) -> OSGeolocationLib.OSGLOCAuthorisation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCAuthorisation",
+                        "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                        "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO6deniedyA2CmF",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO6deniedyA2CmF",
+            "moduleName": "OSGeolocationLib"
+          },
+          {
+            "kind": "Var",
+            "name": "granted",
+            "printedName": "granted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OSGeolocationLib.OSGLOCAuthorisation.Type) -> OSGeolocationLib.OSGLOCAuthorisation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCAuthorisation",
+                        "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                        "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO7grantedyA2CmF",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO7grantedyA2CmF",
+            "moduleName": "OSGeolocationLib"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisation",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisation",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO2eeoiySbAC_ACtFZ",
+            "moduleName": "OSGeolocationLib",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO9hashValueSivp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO9hashValueSivp",
+            "moduleName": "OSGeolocationLib",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO9hashValueSivg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO9hashValueSivg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO4hash4intoys6HasherVz_tF",
+            "moduleName": "OSGeolocationLib",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO",
+        "mangledName": "$s16OSGeolocationLib19OSGLOCAuthorisationO",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "OSGeolocationLib"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCPositionModel",
+        "printedName": "OSGLOCPositionModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "altitude",
+            "printedName": "altitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV8altitudeSdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV8altitudeSdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV8altitudeSdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV8altitudeSdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "course",
+            "printedName": "course",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV6courseSdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV6courseSdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV6courseSdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV6courseSdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "horizontalAccuracy",
+            "printedName": "horizontalAccuracy",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV18horizontalAccuracySdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV18horizontalAccuracySdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV18horizontalAccuracySdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV18horizontalAccuracySdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "latitude",
+            "printedName": "latitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV8latitudeSdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV8latitudeSdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV8latitudeSdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV8latitudeSdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "longitude",
+            "printedName": "longitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV9longitudeSdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV9longitudeSdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV9longitudeSdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV9longitudeSdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "speed",
+            "printedName": "speed",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV5speedSdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV5speedSdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV5speedSdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV5speedSdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "timestamp",
+            "printedName": "timestamp",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV9timestampSdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV9timestampSdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV9timestampSdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV9timestampSdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "verticalAccuracy",
+            "printedName": "verticalAccuracy",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV16verticalAccuracySdvp",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV16verticalAccuracySdvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "SetterAccess"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV16verticalAccuracySdvg",
+                "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV16verticalAccuracySdvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCPositionModel",
+                "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCPositionModel",
+                "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV2eeoiySbAC_ACtFZ",
+            "moduleName": "OSGeolocationLib",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "create",
+            "printedName": "create(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCPositionModel",
+                "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocation",
+                "printedName": "CoreLocation.CLLocation",
+                "usr": "c:objc(cs)CLLocation"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV6create4fromACSo10CLLocationC_tFZ",
+            "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV6create4fromACSo10CLLocationC_tFZ",
+            "moduleName": "OSGeolocationLib",
+            "static": true,
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV",
+        "mangledName": "$s16OSGeolocationLib19OSGLOCPositionModelV",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "OSGeolocationLib"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCAuthorisationRequestType",
+        "printedName": "OSGLOCAuthorisationRequestType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "whenInUse",
+            "printedName": "whenInUse",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OSGeolocationLib.OSGLOCAuthorisationRequestType.Type) -> OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisationRequestType",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                    "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCAuthorisationRequestType",
+                        "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                        "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO9whenInUseyA2CmF",
+            "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO9whenInUseyA2CmF",
+            "moduleName": "OSGeolocationLib"
+          },
+          {
+            "kind": "Var",
+            "name": "always",
+            "printedName": "always",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OSGeolocationLib.OSGLOCAuthorisationRequestType.Type) -> OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisationRequestType",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                    "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCAuthorisationRequestType",
+                        "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                        "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO6alwaysyA2CmF",
+            "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO6alwaysyA2CmF",
+            "moduleName": "OSGeolocationLib"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisationRequestType",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisationRequestType",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO2eeoiySbAC_ACtFZ",
+            "moduleName": "OSGeolocationLib",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO9hashValueSivp",
+            "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO9hashValueSivp",
+            "moduleName": "OSGeolocationLib",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO9hashValueSivg",
+                "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO9hashValueSivg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO4hash4intoys6HasherVz_tF",
+            "moduleName": "OSGeolocationLib",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO",
+        "mangledName": "$s16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "OSGeolocationLib"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "OSGeolocationLib"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCServicesValidator",
+        "printedName": "OSGLOCServicesValidator",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCServicesValidator",
+                "printedName": "OSGeolocationLib.OSGLOCServicesValidator",
+                "usr": "s:16OSGeolocationLib23OSGLOCServicesValidatorV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:16OSGeolocationLib23OSGLOCServicesValidatorVACycfc",
+            "mangledName": "$s16OSGeolocationLib23OSGLOCServicesValidatorVACycfc",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "areLocationServicesEnabled",
+            "printedName": "areLocationServicesEnabled()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib23OSGLOCServicesValidatorV26areLocationServicesEnabledSbyF",
+            "mangledName": "$s16OSGeolocationLib23OSGLOCServicesValidatorV26areLocationServicesEnabledSbyF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:16OSGeolocationLib23OSGLOCServicesValidatorV",
+        "mangledName": "$s16OSGeolocationLib23OSGLOCServicesValidatorV",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCServicesChecker",
+            "printedName": "OSGLOCServicesChecker",
+            "usr": "s:16OSGeolocationLib21OSGLOCServicesCheckerP",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCServicesCheckerP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCManagerWrapper",
+        "printedName": "OSGLOCManagerWrapper",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "authorisationStatus",
+            "printedName": "authorisationStatus",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisation",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvp",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "ProjectedValueProperty",
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvg",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvs",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvs",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvM",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC19authorisationStatusAA19OSGLOCAuthorisationOvM",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "$authorisationStatus",
+            "printedName": "$authorisationStatus",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_Gvp",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_Gvp",
+            "moduleName": "OSGeolocationLib",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_Gvg",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_Gvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_Gvs",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_Gvs",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_GvM",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC20$authorisationStatus7Combine9PublishedV9PublisherVyAA19OSGLOCAuthorisationO_GvM",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "authorisationStatusPublisher",
+            "printedName": "authorisationStatusPublisher",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC28authorisationStatusPublisher7Combine9PublishedV0G0VyAA19OSGLOCAuthorisationO_Gvp",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC28authorisationStatusPublisher7Combine9PublishedV0G0VyAA19OSGLOCAuthorisationO_Gvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC28authorisationStatusPublisher7Combine9PublishedV0G0VyAA19OSGLOCAuthorisationO_Gvg",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC28authorisationStatusPublisher7Combine9PublishedV0G0VyAA19OSGLOCAuthorisationO_Gvg",
+                "moduleName": "OSGeolocationLib",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "currentLocation",
+            "printedName": "currentLocation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "OSGeolocationLib.OSGLOCPositionModel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCPositionModel",
+                    "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                    "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvp",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "ProjectedValueProperty",
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "OSGeolocationLib.OSGLOCPositionModel?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCPositionModel",
+                        "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                        "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvg",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "OSGeolocationLib.OSGLOCPositionModel?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCPositionModel",
+                        "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                        "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvs",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvs",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvM",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15currentLocationAA19OSGLOCPositionModelVSgvM",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "$currentLocation",
+            "printedName": "$currentLocation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_Gvp",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_Gvp",
+            "moduleName": "OSGeolocationLib",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_Gvg",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_Gvg",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_Gvs",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_Gvs",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_GvM",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC16$currentLocation7Combine9PublishedV9PublisherVyAA19OSGLOCPositionModelVSg_GvM",
+                "moduleName": "OSGeolocationLib",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "currentLocationPublisher",
+            "printedName": "currentLocationPublisher",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvp",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvp",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvg",
+                "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvg",
+                "moduleName": "OSGeolocationLib",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(locationManager:servicesChecker:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCManagerWrapper",
+                "printedName": "OSGeolocationLib.OSGLOCManagerWrapper",
+                "usr": "c:@M@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManager",
+                "printedName": "CoreLocation.CLLocationManager",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)CLLocationManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCServicesChecker",
+                "printedName": "OSGeolocationLib.OSGLOCServicesChecker",
+                "hasDefaultArg": true,
+                "usr": "s:16OSGeolocationLib21OSGLOCServicesCheckerP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC15locationManager15servicesCheckerACSo010CLLocationF0C_AA014OSGLOCServicesH0_ptcfc",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15locationManager15servicesCheckerACSo010CLLocationF0C_AA014OSGLOCServicesH0_ptcfc",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "requestAuthorisation",
+            "printedName": "requestAuthorisation(withType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisationRequestType",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC20requestAuthorisation8withTypeyAA026OSGLOCAuthorisationRequestH0O_tF",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC20requestAuthorisation8withTypeyAA026OSGLOCAuthorisationRequestH0O_tF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startMonitoringLocation",
+            "printedName": "startMonitoringLocation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC23startMonitoringLocationyyF",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC23startMonitoringLocationyyF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopMonitoringLocation",
+            "printedName": "stopMonitoringLocation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC22stopMonitoringLocationyyF",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC22stopMonitoringLocationyyF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSingleLocation",
+            "printedName": "requestSingleLocation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC21requestSingleLocationyyF",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC21requestSingleLocationyyF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateConfiguration",
+            "printedName": "updateConfiguration(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCConfigurationModel",
+                "printedName": "OSGeolocationLib.OSGLOCConfigurationModel",
+                "usr": "s:16OSGeolocationLib24OSGLOCConfigurationModelV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC19updateConfigurationyyAA24OSGLOCConfigurationModelVF",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC19updateConfigurationyyAA24OSGLOCConfigurationModelVF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "areLocationServicesEnabled",
+            "printedName": "areLocationServicesEnabled()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib20OSGLOCManagerWrapperC26areLocationServicesEnabledSbyF",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC26areLocationServicesEnabledSbyF",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCManagerWrapper",
+                "printedName": "OSGeolocationLib.OSGLOCManagerWrapper",
+                "usr": "c:@M@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper(im)init",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperCACycfc",
+            "moduleName": "OSGeolocationLib",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "locationManagerDidChangeAuthorization",
+            "printedName": "locationManagerDidChangeAuthorization(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManager",
+                "printedName": "CoreLocation.CLLocationManager",
+                "usr": "c:objc(cs)CLLocationManager"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper(im)locationManagerDidChangeAuthorization:",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC37locationManagerDidChangeAuthorizationyySo010CLLocationF0CF",
+            "moduleName": "OSGeolocationLib",
+            "objc_name": "locationManagerDidChangeAuthorization:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "locationManager",
+            "printedName": "locationManager(_:didUpdateLocations:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManager",
+                "printedName": "CoreLocation.CLLocationManager",
+                "usr": "c:objc(cs)CLLocationManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[CoreLocation.CLLocation]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CLLocation",
+                    "printedName": "CoreLocation.CLLocation",
+                    "usr": "c:objc(cs)CLLocation"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper(im)locationManager:didUpdateLocations:",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15locationManager_18didUpdateLocationsySo010CLLocationF0C_SaySo0J0CGtF",
+            "moduleName": "OSGeolocationLib",
+            "objc_name": "locationManager:didUpdateLocations:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "locationManager",
+            "printedName": "locationManager(_:didFailWithError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManager",
+                "printedName": "CoreLocation.CLLocationManager",
+                "usr": "c:objc(cs)CLLocationManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper(im)locationManager:didFailWithError:",
+            "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC15locationManager_16didFailWithErrorySo010CLLocationF0C_s0J0_ptF",
+            "moduleName": "OSGeolocationLib",
+            "objc_name": "locationManager:didFailWithError:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@OSGeolocationLib@objc(cs)OSGLOCManagerWrapper",
+        "mangledName": "$s16OSGeolocationLib20OSGLOCManagerWrapperC",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCServicesChecker",
+            "printedName": "OSGLOCServicesChecker",
+            "usr": "s:16OSGeolocationLib21OSGLOCServicesCheckerP",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCServicesCheckerP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCAuthorisationHandler",
+            "printedName": "OSGLOCAuthorisationHandler",
+            "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP",
+            "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCSingleLocationHandler",
+            "printedName": "OSGLOCSingleLocationHandler",
+            "usr": "s:16OSGeolocationLib27OSGLOCSingleLocationHandlerP",
+            "mangledName": "$s16OSGeolocationLib27OSGLOCSingleLocationHandlerP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCMonitorLocationHandler",
+            "printedName": "OSGLOCMonitorLocationHandler",
+            "usr": "s:16OSGeolocationLib28OSGLOCMonitorLocationHandlerP",
+            "mangledName": "$s16OSGeolocationLib28OSGLOCMonitorLocationHandlerP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCLocationHandler",
+            "printedName": "OSGLOCLocationHandler",
+            "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "OSGeolocationLib"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCServicesChecker",
+        "printedName": "OSGLOCServicesChecker",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "areLocationServicesEnabled",
+            "printedName": "areLocationServicesEnabled()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib21OSGLOCServicesCheckerP26areLocationServicesEnabledSbyF",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCServicesCheckerP26areLocationServicesEnabledSbyF",
+            "moduleName": "OSGeolocationLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCServicesChecker>",
+            "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCServicesChecker>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16OSGeolocationLib21OSGLOCServicesCheckerP",
+        "mangledName": "$s16OSGeolocationLib21OSGLOCServicesCheckerP",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCAuthorisationHandler",
+        "printedName": "OSGLOCAuthorisationHandler",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "authorisationStatus",
+            "printedName": "authorisationStatus",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisation",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP19authorisationStatusAA0C0Ovp",
+            "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP19authorisationStatusAA0C0Ovp",
+            "moduleName": "OSGeolocationLib",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCAuthorisation",
+                    "printedName": "OSGeolocationLib.OSGLOCAuthorisation",
+                    "usr": "s:16OSGeolocationLib19OSGLOCAuthorisationO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP19authorisationStatusAA0C0Ovg",
+                "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP19authorisationStatusAA0C0Ovg",
+                "moduleName": "OSGeolocationLib",
+                "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCAuthorisationHandler>",
+                "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCAuthorisationHandler>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "authorisationStatusPublisher",
+            "printedName": "authorisationStatusPublisher",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP28authorisationStatusPublisher7Combine9PublishedV0G0VyAA0C0O_Gvp",
+            "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP28authorisationStatusPublisher7Combine9PublishedV0G0VyAA0C0O_Gvp",
+            "moduleName": "OSGeolocationLib",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<OSGeolocationLib.OSGLOCAuthorisation>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP28authorisationStatusPublisher7Combine9PublishedV0G0VyAA0C0O_Gvg",
+                "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP28authorisationStatusPublisher7Combine9PublishedV0G0VyAA0C0O_Gvg",
+                "moduleName": "OSGeolocationLib",
+                "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCAuthorisationHandler>",
+                "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCAuthorisationHandler>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "requestAuthorisation",
+            "printedName": "requestAuthorisation(withType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCAuthorisationRequestType",
+                "printedName": "OSGeolocationLib.OSGLOCAuthorisationRequestType",
+                "usr": "s:16OSGeolocationLib30OSGLOCAuthorisationRequestTypeO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP20requestAuthorisation8withTypeyAA0c7RequestH0O_tF",
+            "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP20requestAuthorisation8withTypeyAA0c7RequestH0O_tF",
+            "moduleName": "OSGeolocationLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCAuthorisationHandler>",
+            "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCAuthorisationHandler>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16OSGeolocationLib26OSGLOCAuthorisationHandlerP",
+        "mangledName": "$s16OSGeolocationLib26OSGLOCAuthorisationHandlerP",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCLocationHandler",
+        "printedName": "OSGLOCLocationHandler",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "currentLocation",
+            "printedName": "currentLocation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "OSGeolocationLib.OSGLOCPositionModel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OSGLOCPositionModel",
+                    "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                    "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP15currentLocationAA19OSGLOCPositionModelVSgvp",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP15currentLocationAA19OSGLOCPositionModelVSgvp",
+            "moduleName": "OSGeolocationLib",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "OSGeolocationLib.OSGLOCPositionModel?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OSGLOCPositionModel",
+                        "printedName": "OSGeolocationLib.OSGLOCPositionModel",
+                        "usr": "s:16OSGeolocationLib19OSGLOCPositionModelV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP15currentLocationAA19OSGLOCPositionModelVSgvg",
+                "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP15currentLocationAA19OSGLOCPositionModelVSgvg",
+                "moduleName": "OSGeolocationLib",
+                "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCLocationHandler>",
+                "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCLocationHandler>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "currentLocationPublisher",
+            "printedName": "currentLocationPublisher",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvp",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvp",
+            "moduleName": "OSGeolocationLib",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<OSGeolocationLib.OSGLOCPositionModel>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvg",
+                "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP24currentLocationPublisher7Combine9PublishedV0G0VyAA19OSGLOCPositionModelVSg_Gvg",
+                "moduleName": "OSGeolocationLib",
+                "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCLocationHandler>",
+                "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCLocationHandler>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "updateConfiguration",
+            "printedName": "updateConfiguration(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCConfigurationModel",
+                "printedName": "OSGeolocationLib.OSGLOCConfigurationModel",
+                "usr": "s:16OSGeolocationLib24OSGLOCConfigurationModelV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP19updateConfigurationyyAA24OSGLOCConfigurationModelVF",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP19updateConfigurationyyAA24OSGLOCConfigurationModelVF",
+            "moduleName": "OSGeolocationLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCLocationHandler>",
+            "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCLocationHandler>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP",
+        "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCSingleLocationHandler",
+        "printedName": "OSGLOCSingleLocationHandler",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "requestSingleLocation",
+            "printedName": "requestSingleLocation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib27OSGLOCSingleLocationHandlerP013requestSingleD0yyF",
+            "mangledName": "$s16OSGeolocationLib27OSGLOCSingleLocationHandlerP013requestSingleD0yyF",
+            "moduleName": "OSGeolocationLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCSingleLocationHandler>",
+            "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCSingleLocationHandler>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16OSGeolocationLib27OSGLOCSingleLocationHandlerP",
+        "mangledName": "$s16OSGeolocationLib27OSGLOCSingleLocationHandlerP",
+        "moduleName": "OSGeolocationLib",
+        "genericSig": "<τ_0_0 : OSGeolocationLib.OSGLOCLocationHandler>",
+        "sugared_genericSig": "<Self : OSGeolocationLib.OSGLOCLocationHandler>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCLocationHandler",
+            "printedName": "OSGLOCLocationHandler",
+            "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCMonitorLocationHandler",
+        "printedName": "OSGLOCMonitorLocationHandler",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "startMonitoringLocation",
+            "printedName": "startMonitoringLocation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib28OSGLOCMonitorLocationHandlerP015startMonitoringD0yyF",
+            "mangledName": "$s16OSGeolocationLib28OSGLOCMonitorLocationHandlerP015startMonitoringD0yyF",
+            "moduleName": "OSGeolocationLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCMonitorLocationHandler>",
+            "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCMonitorLocationHandler>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopMonitoringLocation",
+            "printedName": "stopMonitoringLocation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16OSGeolocationLib28OSGLOCMonitorLocationHandlerP014stopMonitoringD0yyF",
+            "mangledName": "$s16OSGeolocationLib28OSGLOCMonitorLocationHandlerP014stopMonitoringD0yyF",
+            "moduleName": "OSGeolocationLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : OSGeolocationLib.OSGLOCMonitorLocationHandler>",
+            "sugared_genericSig": "<Self where Self : OSGeolocationLib.OSGLOCMonitorLocationHandler>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16OSGeolocationLib28OSGLOCMonitorLocationHandlerP",
+        "mangledName": "$s16OSGeolocationLib28OSGLOCMonitorLocationHandlerP",
+        "moduleName": "OSGeolocationLib",
+        "genericSig": "<τ_0_0 : OSGeolocationLib.OSGLOCLocationHandler>",
+        "sugared_genericSig": "<Self : OSGeolocationLib.OSGLOCLocationHandler>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OSGLOCLocationHandler",
+            "printedName": "OSGLOCLocationHandler",
+            "usr": "s:16OSGeolocationLib21OSGLOCLocationHandlerP",
+            "mangledName": "$s16OSGeolocationLib21OSGLOCLocationHandlerP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OSGLOCConfigurationModel",
+        "printedName": "OSGLOCConfigurationModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(enableHighAccuracy:minimumUpdateDistanceInMeters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OSGLOCConfigurationModel",
+                "printedName": "OSGeolocationLib.OSGLOCConfigurationModel",
+                "usr": "s:16OSGeolocationLib24OSGLOCConfigurationModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:16OSGeolocationLib24OSGLOCConfigurationModelV18enableHighAccuracy29minimumUpdateDistanceInMetersACSb_SdSgtcfc",
+            "mangledName": "$s16OSGeolocationLib24OSGLOCConfigurationModelV18enableHighAccuracy29minimumUpdateDistanceInMetersACSb_SdSgtcfc",
+            "moduleName": "OSGeolocationLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:16OSGeolocationLib24OSGLOCConfigurationModelV",
+        "mangledName": "$s16OSGeolocationLib24OSGLOCConfigurationModelV",
+        "moduleName": "OSGeolocationLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/rcj\/Documents\/Projects\/outsystems-geolocation\/packages\/ios-lib\/OSGeolocationLib\/OSGLOCPositionModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1581,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/rcj\/Documents\/Projects\/outsystems-geolocation\/packages\/ios-lib\/OSGeolocationLib\/Publishers\/OSGLOCManagerWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 396,
+      "length": 20,
+      "value": "\"OSGeolocationLib.OSGLOCManagerWrapper\""
+    }
+  ]
+}
