@@ -1,28 +1,14 @@
 {
-  "name": "com.outsystems.plugins.osgeolocation",
-  "displayName": "OSGeolocation",
+  "name": "com.outsystems.plugins.osgeolocation.wrapper",
+  "displayName": "OSGeolocationWrapper",
   "version": "1.0.0",
-  "description": "Geolocation plugin for Cordova",
+  "description": "Wrapper for consuming Outsystems' Geolocation plugins for Cordova/Capacitor",
   "scripts": {
     "build": "rimraf ./dist && vite build"
   },
-  "keywords": [
-    "ecosystem:cordova",
-    "cordova-android",
-    "cordova-ios"
-  ],
-  "cordova": {
-    "id": "com.outsystems.plugins.osgeolocation",
-    "platforms": [
-      "android",
-      "ios"
-    ]
-  },
+  "keywords": [],
   "author": "OutSystems",
   "license": "MIT",
-  "dependencies": {
-    "@capacitor/synapse": "^1.0.1"
-  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/cordova": "^11.0.3",
@@ -34,5 +20,8 @@
     "typescript": "~5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.9.1"
+  },
+  "dependencies": {
+    "uuid": "^11.0.3"
   }
 }

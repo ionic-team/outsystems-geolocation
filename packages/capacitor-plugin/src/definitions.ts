@@ -26,7 +26,7 @@ export interface PermissionStatus {
    *
    * On iOS and web it will have the same value as location alias.
    *
-   * @since 1.2.0
+   * @since 1.0.0
    */
   coarseLocation: PermissionState;
 }
@@ -190,7 +190,7 @@ export interface PositionOptions {
    * This parameter is only available for Android. It has no effect on iOS or Web platforms.
    *
    * @default 5000
-   * @since 6.1.0
+   * @since 1.0.0
    */
   minimumUpdateInterval?: number;
 }
@@ -199,21 +199,3 @@ export type WatchPositionCallback = (
   position: Position | null,
   err?: any,
 ) => void;
-
-/**
- * @deprecated Use `PositionOptions`.
- * @since 1.0.0
- */
-export type GeolocationOptions = PositionOptions;
-
-/**
- * @deprecated Use `WatchPositionCallback`.
- * @since 1.0.0
- */
-export type GeolocationWatchCallback = WatchPositionCallback;
-
-/**
- * @deprecated Use `Position`.
- * @since 1.0.0
- */
-export type GeolocationPosition = Position;

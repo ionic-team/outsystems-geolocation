@@ -1,21 +1,67 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { CallbackID, ClearWatchOptions, GeolocationPluginPermissions, IGeolocationPlugin, PermissionStatus, Position, PositionOptions, WatchPositionCallback } from './definitions';
+import type { CallbackID, IGeolocationPlugin, PermissionStatus, Position, PositionOptions, WatchPositionCallback } from './definitions';
 
 export class GeolocationPluginWeb extends WebPlugin implements IGeolocationPlugin {
-  getCurrentPosition(options?: PositionOptions): Promise<Position> {
-    throw new Error('Method not implemented.');
+  async getCurrentPosition(options?: PositionOptions): Promise<Position> {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          resolve(pos);
+        },
+        err => {
+          reject(err);
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 10000,
+          maximumAge: 0,
+          ...options,
+        },
+      );
+    });
   }
-  watchPosition(options: PositionOptions, callback: WatchPositionCallback): Promise<CallbackID> {
-    throw new Error('Method not implemented.');
+
+  async watchPosition(options: PositionOptions, callback: WatchPositionCallback): Promise<CallbackID> {
+    const id = navigator.geolocation.watchPosition(
+      pos => {
+        callback(pos);
+      },
+      err => {
+        callback(null, err);
+      },
+
+      {
+        enableHighAccuracy: false,
+        timeout: 10000,
+        maximumAge: 0,
+        minimumUpdateInterval: 5000,
+        ...options,
+      },
+    );
+
+    return `${id}`;
   }
-  clearWatch(options: ClearWatchOptions): Promise<void> {
-    throw new Error('Method not implemented.');
+  async clearWatch(options: { id: string }): Promise<void> {
+    navigator.geolocation.clearWatch(parseInt(options.id, 10));
   }
-  checkPermissions(): Promise<PermissionStatus> {
-    throw new Error('Method not implemented.');
+
+  async checkPermissions(): Promise<PermissionStatus> {
+    if (typeof navigator === 'undefined' || !navigator.permissions) {
+      throw this.unavailable('Permissions API not available in this browser');
+    }
+
+    const permission = await navigator.permissions.query({
+      name: 'geolocation',
+    });
+    return { location: permission.state, coarseLocation: permission.state };
   }
-  requestPermissions(permissions?: GeolocationPluginPermissions): Promise<PermissionStatus> {
-    throw new Error('Method not implemented.');
+
+  async requestPermissions(): Promise<PermissionStatus> {
+    throw this.unimplemented('Not implemented on web.');
   }
 }
+
+const Geolocation = new GeolocationPluginWeb();
+
+export { Geolocation };
