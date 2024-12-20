@@ -54,7 +54,6 @@ class OSGeolocation {
                 // if no successful position was retrieved before timeout expired.
                 timeoutID = this.#createTimeout(errorCallback, options.timeout, false, null);
             }
-            options.id = timeoutID
 
             // @ts-ignore
             if (typeof (CapacitorUtils) !== 'undefined' && typeof (CapacitorUtils.Synapse) !== 'undefined') {
@@ -64,7 +63,7 @@ class OSGeolocation {
             } else {
                 // this means we may be dealing with an updated outsystems plugin but now a new build
                 // @ts-ignore
-                navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+                navigator.geolocation.getCurrentPosition(success, error, options);
             }
         }
     }
