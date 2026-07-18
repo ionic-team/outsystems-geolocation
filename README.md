@@ -50,6 +50,18 @@ If you only require approximate location (variable accuracy but usually around 2
 
 Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
 
+## Location Button
+
+Importing `@capacitor/geolocation` registers `<os-location-button>`. The plugin
+includes the Native Islands runtime, so applications do not install it separately.
+
+```html
+<os-location-button text-type="use-precise-location"></os-location-button>
+```
+
+On Android, the element renders a native button and emits `location-grant`,
+`location-position`, and `location-error` DOM events. Browsers use
+`navigator.geolocation`. Native iOS support is not currently provided.
 
 ## API
 

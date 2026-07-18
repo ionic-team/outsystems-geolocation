@@ -9,6 +9,8 @@
   "files": [
     "android/src/main/",
     "android/build.gradle",
+    "android/libs/IONGeolocationLib-release.aar",
+    "android/libs/ionnativeislands-android-release.aar",
     "dist/",
     "ios/Sources",
     "ios/Tests",
@@ -32,7 +34,7 @@
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
     "verify:ios": "xcodebuild -scheme CapacitorGeolocation -destination generic/platform=iOS",
-    "verify:android": "cd android && ./gradlew clean build test && cd ..",
+    "verify:android": "cd android && ./gradlew clean compileDebugKotlin compileReleaseKotlin test lint && cd ..",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
@@ -54,6 +56,7 @@
     "@capacitor/core": "^8.0.0",
     "@capacitor/docgen": "^0.3.0",
     "@capacitor/ios": "^8.0.0",
+    "@capacitor/native-islands": "file:vendor/capacitor-native-islands-1.0.0.tgz",
     "@ionic/eslint-config": "^0.4.0",
     "@ionic/prettier-config": "^4.0.0",
     "@ionic/swiftlint-config": "^2.0.0",

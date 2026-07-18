@@ -2,7 +2,10 @@ package com.capacitorjs.plugins.geolocation
 
 import android.Manifest
 import android.os.Build
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.Lifecycle
 import com.getcapacitor.JSObject
 import com.getcapacitor.PermissionState
 import com.getcapacitor.Plugin
@@ -15,10 +18,17 @@ import io.ionic.libs.iongeolocationlib.controller.IONGLOCController
 import io.ionic.libs.iongeolocationlib.model.IONGLOCException
 import io.ionic.libs.iongeolocationlib.model.IONGLOCLocationOptions
 import io.ionic.libs.iongeolocationlib.model.IONGLOCLocationResult
+import io.ionic.libs.iongeolocationlib.view.IONGLOCLocationButtonRegistry
+import io.ionic.libs.iongeolocationlib.view.IONGLOCLocationButtonPermissionRequester
+import io.ionic.libs.ionnativeislandslib.NativeIslandsBridgeValidationError
+import io.ionic.libs.ionnativeislandslib.NativeIslandsBridgeValidator
+import io.ionic.libs.ionnativeislandslib.NativeIslandsController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import org.json.JSONArray
+import org.json.JSONObject
 
 @CapacitorPlugin(
     name = "Geolocation",
@@ -34,7 +44,17 @@ class GeolocationPlugin : Plugin() {
 
     private lateinit var controller: IONGLOCController
     private lateinit var coroutineScope: CoroutineScope
+    private lateinit var locationButtonPermissionLauncher: ActivityResultLauncher<Array<String>>
+    private var nativeIslandsController: NativeIslandsController? = null
+    private val pendingLocationButtonPermissionResults = mutableListOf<(Boolean) -> Unit>()
+    private var locationButtonPermissionRequestInFlight = false
     private val watchingCalls: MutableMap<String, PluginCall> = mutableMapOf()
+    private val locationButtonPermissionRequester =
+        IONGLOCLocationButtonPermissionRequester { callback ->
+            activity.runOnUiThread {
+                requestLocationButtonPermission(callback)
+            }
+        }
 
     companion object {
         const val LOCATION_ALIAS: String = "location"
@@ -54,11 +74,166 @@ class GeolocationPlugin : Plugin() {
         }
 
         this.controller = IONGLOCController(context, activityLauncher)
+        locationButtonPermissionLauncher = activity.registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions(),
+        ) { results ->
+            completeLocationButtonPermissionRequest(
+                results[Manifest.permission.ACCESS_FINE_LOCATION] == true,
+            )
+        }
+        IONGLOCLocationButtonRegistry.register(activity, locationButtonPermissionRequester)
     }
+
+    private fun requestLocationButtonPermission(callback: (Boolean) -> Unit) {
+        if (
+            ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+        ) {
+            callback(true)
+            return
+        }
+        pendingLocationButtonPermissionResults += callback
+        if (locationButtonPermissionRequestInFlight) return
+        locationButtonPermissionRequestInFlight = true
+        try {
+            locationButtonPermissionLauncher.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                ),
+            )
+        } catch (_: RuntimeException) {
+            completeLocationButtonPermissionRequest(false)
+        }
+    }
+
+    private fun completeLocationButtonPermissionRequest(granted: Boolean) {
+        locationButtonPermissionRequestInFlight = false
+        val callbacks = pendingLocationButtonPermissionResults.toList()
+        pendingLocationButtonPermissionResults.clear()
+        callbacks.forEach { callback -> callback(granted) }
+    }
+
+    /** Native Islands carrier methods hosted by Geolocation. */
+    @PluginMethod
+    fun nativeIslandsApplyLayout(call: PluginCall) {
+        val envelope = call.data
+        if (!validateNativeIslands(call, NativeIslandsBridgeValidator.validateLayoutOperation(envelope))) {
+            return
+        }
+        val host = nativeIslandsHost()
+        val components = envelope.opt("components") as JSONArray
+        val order = envelope.opt("order") as JSONArray
+        val exclusions = envelope.opt("exclusions") as JSONObject
+        host.validateLayout(components, order, exclusions)?.let { reason ->
+            call.reject(reason, "invalid_request")
+            return
+        }
+        host.applyLayout(
+            components,
+            order,
+            exclusions,
+            failure = { code, message -> call.reject(message, code) },
+        ) { call.resolve() }
+    }
+
+    @PluginMethod
+    fun nativeIslandsCommand(call: PluginCall) {
+        val envelope = call.data
+        if (!validateNativeIslands(call, NativeIslandsBridgeValidator.validateCommandOperation(envelope))) {
+            return
+        }
+        val host = nativeIslandsHost()
+        val version = (envelope.opt("protocolVersion") as Number).toInt()
+        val island = envelope.opt("island") as String
+        val component = envelope.opt("islandType") as String
+        val method = envelope.opt("method") as String
+        val params = envelope.opt("params") as? JSONObject ?: JSONObject()
+        host.dispatchCommand(
+            version,
+            island,
+            component,
+            method,
+            NativeIslandsCarrierJson.objectToMap(params),
+        ) { result ->
+            val code = result.optString("code")
+            if (code.isNotEmpty()) {
+                call.reject(result.optString("error", code), code)
+            } else {
+                call.resolve()
+            }
+        }
+    }
+
+    @PluginMethod
+    fun nativeIslandsReset(call: PluginCall) {
+        if (
+            !validateNativeIslands(
+                call,
+                NativeIslandsBridgeValidator.validateOperation("reset", call.data),
+            )
+        ) {
+            return
+        }
+        nativeIslandsHost().reset()
+        call.resolve()
+    }
+
+    private fun nativeIslandsHost(): NativeIslandsController {
+        nativeIslandsController?.let { host ->
+            host.bind(bridge.webView, activity)
+            return host
+        }
+        val host = NativeIslandsController { event, payload ->
+            notifyListeners("nativeIslands:$event", JSObject.fromJSONObject(payload))
+        }
+        nativeIslandsController = host
+        host.bind(bridge.webView, activity)
+        activity.runOnUiThread {
+            host.ensureContainer()
+            if (activity.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                host.onHostResume()
+            } else {
+                host.onHostPause()
+            }
+        }
+        return host
+    }
+
+    private fun validateNativeIslands(
+        call: PluginCall,
+        error: NativeIslandsBridgeValidationError?,
+    ): Boolean =
+        if (error == null) {
+            true
+        } else {
+            call.reject(error.message, error.code)
+            false
+        }
 
     override fun handleOnDestroy() {
         super.handleOnDestroy()
         coroutineScope.cancel()
+        pendingLocationButtonPermissionResults.clear()
+        locationButtonPermissionRequestInFlight = false
+        if (::locationButtonPermissionLauncher.isInitialized) {
+            locationButtonPermissionLauncher.unregister()
+        }
+        nativeIslandsController?.dispose()
+        nativeIslandsController = null
+        IONGLOCLocationButtonRegistry.unregister(activity)
+    }
+
+    override fun handleOnResume() {
+        super.handleOnResume()
+        nativeIslandsController?.onHostResume()
+    }
+
+    override fun handleOnPause() {
+        super.handleOnPause()
+        nativeIslandsController?.onHostPause()
     }
 
     @PluginMethod
@@ -360,4 +535,25 @@ class GeolocationPlugin : Plugin() {
 
     private fun PluginCall.getNumber(name: String, defaultValue: Long): Long =
         getLong(name) ?: getInt(name)?.toLong() ?: defaultValue
+}
+
+private object NativeIslandsCarrierJson {
+    fun objectToMap(value: JSONObject): Map<String, Any?> {
+        val result = HashMap<String, Any?>()
+        val keys = value.keys()
+        while (keys.hasNext()) {
+            val key = keys.next()
+            result[key] = normalize(value.opt(key))
+        }
+        return result
+    }
+
+    private fun normalize(value: Any?): Any? = when (value) {
+        null, JSONObject.NULL -> null
+        is JSONObject -> objectToMap(value)
+        is JSONArray -> List(value.length()) { index ->
+            normalize(value.opt(index))
+        }
+        else -> value
+    }
 }
