@@ -38,24 +38,15 @@ const TEXT_LABELS: Record<string, string> = {
   none: 'Share location',
 };
 
-const NUMERIC_ATTRIBUTES = [
-  ['corner-radius', 'cornerRadius', 0, 68, 22],
-  ['pressed-corner-radius', 'pressedCornerRadius', 0, 68, 12],
-  ['stroke-width', 'strokeWidth', 0, 3, 0],
-  ['clickable-padding', 'clickablePadding', 4, 8, 6],
-] as const;
-
-const COLOR_ATTRIBUTES = [
-  ['background-color', 'backgroundColor', '#0B57D0'],
-  ['text-color', 'textColor', '#FFFFFF'],
-  ['icon-tint', 'iconTint', '#FFFFFF'],
-  ['stroke-color', 'strokeColor', '#000000'],
-] as const;
-const OBSERVED_ATTRIBUTES = [
-  'text-type',
-  ...COLOR_ATTRIBUTES.map(([attribute]) => attribute),
-  ...NUMERIC_ATTRIBUTES.map(([attribute]) => attribute),
-];
+const STYLE_PROPERTIES = {
+  backgroundColor: '--os-location-button-background-color',
+  textColor: '--os-location-button-text-color',
+  iconTint: '--os-location-button-icon-color',
+  strokeColor: '--os-location-button-border-color',
+  strokeWidth: '--os-location-button-border-width',
+} as const;
+const OBSERVED_ATTRIBUTES = ['text-type'];
+const OBSERVED_STYLES = [...Object.values(STYLE_PROPERTIES), 'border-radius'];
 
 const HEX_COLOR = /^#[0-9A-Fa-f]{6}$/;
 
@@ -64,28 +55,22 @@ function textType(element: HTMLElement): string {
   return value in TEXT_LABELS ? value : 'precise-location';
 }
 
-function colorAttribute(element: HTMLElement, name: string, fallback: string): string {
-  const value = element.getAttribute(name);
-  return value !== null && HEX_COLOR.test(value) ? value : fallback;
+function colorStyle(style: CSSStyleDeclaration, name: string, fallback: string): string {
+  const value = style.getPropertyValue(name).trim();
+  return HEX_COLOR.test(value) ? value : fallback;
 }
 
-function numericAttribute(
-  element: HTMLElement,
+function pixelStyle(
+  style: CSSStyleDeclaration,
   name: string,
   minimum: number,
   maximum: number,
   fallback: number,
 ): number {
-  const value = element.getAttribute(name);
-  if (value === null || value.trim() === '') return fallback;
-  const number = Number(value);
+  const value = style.getPropertyValue(name).trim();
+  if (!value.endsWith('px')) return fallback;
+  const number = Number.parseFloat(value);
   return Number.isFinite(number) && number >= minimum && number <= maximum ? number : fallback;
-}
-
-function syncOpaqueShape(element: HTMLElement): number {
-  const radius = numericAttribute(element, 'corner-radius', 0, 68, 22);
-  element.style.setProperty('border-radius', `${radius}px`);
-  return radius;
 }
 
 function dispatch<T>(element: HTMLElement, type: string, detail: T): void {
@@ -93,7 +78,6 @@ function dispatch<T>(element: HTMLElement, type: string, detail: T): void {
 }
 
 function browserFallback(element: HTMLElement): void {
-  syncOpaqueShape(element);
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'os-location-button-fallback';
@@ -108,12 +92,6 @@ function browserFallback(element: HTMLElement): void {
   text.textContent = label;
   button.append(icon, text);
   button.setAttribute('aria-label', label);
-  button.style.setProperty('--location-button-background', colorAttribute(element, 'background-color', '#0B57D0'));
-  button.style.setProperty('--location-button-foreground', colorAttribute(element, 'text-color', '#FFFFFF'));
-  button.style.setProperty('--location-button-icon', colorAttribute(element, 'icon-tint', '#FFFFFF'));
-  button.style.setProperty('--location-button-stroke', colorAttribute(element, 'stroke-color', '#000000'));
-  button.style.setProperty('--location-button-radius', `${numericAttribute(element, 'corner-radius', 0, 68, 22)}px`);
-  button.style.setProperty('--location-button-stroke-width', `${numericAttribute(element, 'stroke-width', 0, 3, 0)}px`);
   button.addEventListener('click', () => {
     if (Capacitor.getPlatform() !== 'web') {
       const platform = Capacitor.getPlatform();
@@ -162,7 +140,7 @@ function installFallbackStyles(): void {
   const style = document.createElement('style');
   style.dataset.osLocationButton = '';
   style.textContent = `
-    os-location-button {
+    :where(os-location-button) {
       display: inline-block;
       inline-size: min(100%, 22rem);
       min-inline-size: 3rem;
@@ -182,15 +160,15 @@ function installFallbackStyles(): void {
       min-inline-size: 3rem;
       min-block-size: 3rem;
       padding-inline: 1rem;
-      border: var(--location-button-stroke-width) solid var(--location-button-stroke);
-      border-radius: var(--location-button-radius);
-      background: var(--location-button-background);
-      color: var(--location-button-foreground);
+      border: var(--os-location-button-border-width, 0px) solid var(--os-location-button-border-color, #000000);
+      border-radius: inherit;
+      background: var(--os-location-button-background-color, #0b57d0);
+      color: var(--os-location-button-text-color, #ffffff);
       font: 600 1rem/1 system-ui, sans-serif;
     }
 
     .os-location-button-fallback__icon {
-      color: var(--location-button-icon);
+      color: var(--os-location-button-icon-color, var(--os-location-button-text-color, #ffffff));
       font-size: 1.25rem;
       line-height: 1;
     }
@@ -251,20 +229,21 @@ function registerLocationButton(): void {
     isInteractive: true,
     accessibility: 'native',
     observedAttributes: OBSERVED_ATTRIBUTES,
+    observedStyles: OBSERVED_STYLES,
     getProperties: (element) => {
-      const properties: Record<string, string | number> = {
+      const style = getComputedStyle(element);
+      const cornerRadius = pixelStyle(style, 'border-top-left-radius', 0, 68, 22);
+      const textColor = colorStyle(style, STYLE_PROPERTIES.textColor, '#FFFFFF');
+      return {
         textType: textType(element),
+        backgroundColor: colorStyle(style, STYLE_PROPERTIES.backgroundColor, '#0B57D0'),
+        textColor,
+        iconTint: colorStyle(style, STYLE_PROPERTIES.iconTint, textColor),
+        strokeColor: colorStyle(style, STYLE_PROPERTIES.strokeColor, '#000000'),
+        cornerRadius,
+        pressedCornerRadius: Math.min(cornerRadius, 12),
+        strokeWidth: pixelStyle(style, STYLE_PROPERTIES.strokeWidth, 0, 3, 0),
       };
-      for (const [attribute, property, fallback] of COLOR_ATTRIBUTES) {
-        properties[property] = colorAttribute(element, attribute, fallback);
-      }
-      for (const [attribute, property, minimum, maximum, fallback] of NUMERIC_ATTRIBUTES) {
-        properties[property] =
-          attribute === 'corner-radius'
-            ? syncOpaqueShape(element)
-            : numericAttribute(element, attribute, minimum, maximum, fallback);
-      }
-      return properties;
     },
     renderFallback: browserFallback,
     events: {

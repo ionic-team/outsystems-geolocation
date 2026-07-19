@@ -63,6 +63,22 @@ On Android, the element renders a native button and emits `location-grant`,
 `location-position`, and `location-error` DOM events. Browsers use
 `navigator.geolocation`. Native iOS support is not currently provided.
 
+Style the element with `border-radius`, `z-index`, and these CSS custom properties:
+
+```css
+os-location-button {
+  border-radius: 16px;
+  --os-location-button-background-color: #0b57d0;
+  --os-location-button-text-color: #ffffff;
+  --os-location-button-icon-color: #ffffff;
+  --os-location-button-border-color: #000000;
+  --os-location-button-border-width: 1px;
+}
+```
+
+Colors use six-digit hex values. Border width supports `0px` through `3px`;
+border radius supports `0px` through `68px`.
+
 ## API
 
 <docgen-index>
