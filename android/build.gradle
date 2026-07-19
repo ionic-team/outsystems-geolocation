@@ -78,6 +78,12 @@ repositories {
     mavenCentral()
 }
 
+def locationButtonAar =
+    locationButtonCompileSdk >= 37
+        ? file('libs/IONGeolocationLib-api37-release.aar')
+        : file('libs/IONGeolocationLib-compat-release.aar')
+def nativeIslandsAar = file('libs/ionnativeislands-android-release.aar')
+def localRuntimeAars = files(locationButtonAar, nativeIslandsAar)
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -89,12 +95,9 @@ dependencies {
     }
 
     if (locationButtonCompileSdk >= 37) {
-        implementation files('libs/IONGeolocationLib-api37-release.aar')
         implementation 'androidx.core.locationbutton:locationbutton:1.0.0-alpha01'
-    } else {
-        implementation files('libs/IONGeolocationLib-compat-release.aar')
     }
-    implementation files('libs/ionnativeislands-android-release.aar')
+    compileOnly localRuntimeAars
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
 
     implementation 'com.google.code.gson:gson:2.13.2'
@@ -104,4 +107,9 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+}
+
+def applicationProject = rootProject.findProject(':app')
+if (applicationProject != null && applicationProject != project) {
+    applicationProject.dependencies.add('implementation', localRuntimeAars)
 }
