@@ -127,7 +127,8 @@ class GeolocationPlugin : Plugin() {
         val components = envelope.opt("components") as JSONArray
         val order = envelope.opt("order") as JSONArray
         val exclusions = envelope.opt("exclusions") as JSONObject
-        host.validateLayout(components, order, exclusions)?.let { reason ->
+        val cutouts = envelope.opt("cutouts") as JSONObject
+        host.validateLayout(components, order, exclusions, cutouts)?.let { reason ->
             call.reject(reason, "invalid_request")
             return
         }
@@ -135,6 +136,7 @@ class GeolocationPlugin : Plugin() {
             components,
             order,
             exclusions,
+            cutouts,
             failure = { code, message -> call.reject(message, code) },
         ) { call.resolve() }
     }

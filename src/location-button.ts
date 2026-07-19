@@ -39,16 +39,24 @@ const TEXT_LABELS: Record<string, string> = {
 };
 
 const STYLE_PROPERTIES = {
-  backgroundColor: '--os-location-button-background-color',
-  textColor: '--os-location-button-text-color',
+  backgroundColor: 'background-color',
+  textColor: 'color',
   iconTint: '--os-location-button-icon-color',
-  strokeColor: '--os-location-button-border-color',
-  strokeWidth: '--os-location-button-border-width',
+  strokeColor: 'border-top-color',
+  strokeWidth: 'border-top-width',
 } as const;
 const OBSERVED_ATTRIBUTES = ['text-type'];
-const OBSERVED_STYLES = [...Object.values(STYLE_PROPERTIES), 'border-radius'];
+const OBSERVED_STYLES = [
+  STYLE_PROPERTIES.backgroundColor,
+  STYLE_PROPERTIES.textColor,
+  STYLE_PROPERTIES.iconTint,
+  STYLE_PROPERTIES.strokeColor,
+  STYLE_PROPERTIES.strokeWidth,
+  'border-top-left-radius',
+];
 
 const HEX_COLOR = /^#[0-9A-Fa-f]{6}$/;
+const RGB_COLOR = /^rgba?\((.+)\)$/;
 
 function textType(element: HTMLElement): string {
   const value = element.getAttribute('text-type') ?? 'precise-location';
@@ -57,7 +65,19 @@ function textType(element: HTMLElement): string {
 
 function colorStyle(style: CSSStyleDeclaration, name: string, fallback: string): string {
   const value = style.getPropertyValue(name).trim();
-  return HEX_COLOR.test(value) ? value : fallback;
+  if (HEX_COLOR.test(value)) return value.toUpperCase();
+  const match = value.match(RGB_COLOR);
+  if (!match) return fallback;
+  const channels = match[1].match(/\d+(?:\.\d+)?/g)?.map(Number);
+  if (!channels || channels.length < 3 || channels.slice(0, 3).some((channel) => channel < 0 || channel > 255)) {
+    return fallback;
+  }
+  if (channels.length > 3 && channels[3] < 1) return fallback;
+  return `#${channels
+    .slice(0, 3)
+    .map((channel) => Math.round(channel).toString(16).padStart(2, '0'))
+    .join('')
+    .toUpperCase()}`;
 }
 
 function pixelStyle(
@@ -147,7 +167,12 @@ function installFallbackStyles(): void {
       block-size: 3.25rem;
       min-block-size: 3rem;
       max-block-size: 136px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border: 0 solid #000000;
       border-radius: 22px;
+      background-color: #0b57d0;
+      color: #ffffff;
     }
 
     .os-location-button-fallback {
@@ -160,15 +185,15 @@ function installFallbackStyles(): void {
       min-inline-size: 3rem;
       min-block-size: 3rem;
       padding-inline: 1rem;
-      border: var(--os-location-button-border-width, 0px) solid var(--os-location-button-border-color, #000000);
+      border: 0;
       border-radius: inherit;
-      background: var(--os-location-button-background-color, #0b57d0);
-      color: var(--os-location-button-text-color, #ffffff);
+      background: transparent;
+      color: inherit;
       font: 600 1rem/1 system-ui, sans-serif;
     }
 
     .os-location-button-fallback__icon {
-      color: var(--os-location-button-icon-color, var(--os-location-button-text-color, #ffffff));
+      color: var(--os-location-button-icon-color, currentColor);
       font-size: 1.25rem;
       line-height: 1;
     }

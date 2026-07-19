@@ -9,7 +9,8 @@
   "files": [
     "android/src/main/",
     "android/build.gradle",
-    "android/libs/IONGeolocationLib-release.aar",
+    "android/libs/IONGeolocationLib-compat-release.aar",
+    "android/libs/IONGeolocationLib-api37-release.aar",
     "android/libs/ionnativeislands-android-release.aar",
     "dist/",
     "ios/Sources",

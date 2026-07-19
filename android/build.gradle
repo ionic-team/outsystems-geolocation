@@ -34,9 +34,16 @@ if (System.getenv("CAP_PLUGIN_PUBLISH") == "true") {
     apply from: file('../scripts/android/publish-module.gradle')
 }
 
+def locationButtonCompileSdkValue =
+    rootProject.ext.has('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 36
+def locationButtonCompileSdkMatch =
+    locationButtonCompileSdkValue.toString() =~ /(\d+)$/
+def locationButtonCompileSdk =
+    locationButtonCompileSdkMatch ? locationButtonCompileSdkMatch[0][1].toInteger() : 36
+
 android {
     namespace = "com.capacitorjs.plugins.geolocation"
-    compileSdk = project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 36
+    compileSdk = locationButtonCompileSdk
     defaultConfig {
         minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 24
         targetSdkVersion project.hasProperty('targetSdkVersion') ? rootProject.ext.targetSdkVersion : 36
@@ -81,7 +88,12 @@ dependencies {
         implementation project(':capacitor-android')
     }
 
-    implementation files('libs/IONGeolocationLib-release.aar')
+    if (locationButtonCompileSdk >= 37) {
+        implementation files('libs/IONGeolocationLib-api37-release.aar')
+        implementation 'androidx.core.locationbutton:locationbutton:1.0.0-alpha01'
+    } else {
+        implementation files('libs/IONGeolocationLib-compat-release.aar')
+    }
     implementation files('libs/ionnativeislands-android-release.aar')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
 
