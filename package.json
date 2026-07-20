@@ -46,7 +46,7 @@
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepack": "npm run build",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build",
     "publish:cocoapod": "pod trunk push ./CapacitorGeolocation.podspec --allow-warnings"
   },

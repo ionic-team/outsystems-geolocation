@@ -6,6 +6,8 @@ import {
   NATIVE_ISLANDS_TRANSPORT_PRIORITY,
 } from '@capacitor/native-islands/internal';
 
+import type { GeolocationPlugin } from './definitions.js';
+
 export interface LocationButtonGrantDetail {
   granted: boolean;
 }
@@ -97,7 +99,51 @@ function dispatch<T>(element: HTMLElement, type: string, detail: T): void {
   element.dispatchEvent(new CustomEvent(type, { bubbles: true, composed: true, detail }));
 }
 
-function browserFallback(element: HTMLElement): void {
+interface LocationPosition {
+  coords: {
+    latitude: number;
+    longitude: number;
+    accuracy: number;
+  };
+  timestamp: number;
+}
+
+function dispatchPosition(element: HTMLElement, position: LocationPosition): void {
+  dispatch<LocationButtonPositionDetail>(element, 'location-position', {
+    latitude: position.coords.latitude,
+    longitude: position.coords.longitude,
+    accuracy: position.coords.accuracy,
+    timestamp: position.timestamp,
+  });
+}
+
+async function requestNativeFallback(element: HTMLElement, geolocationPlugin: GeolocationPlugin): Promise<void> {
+  try {
+    const status = await geolocationPlugin.requestPermissions({
+      permissions: ['location'],
+    });
+    const granted = status.location === 'granted';
+    dispatch<LocationButtonGrantDetail>(element, 'location-grant', { granted });
+    if (!granted) {
+      dispatch<LocationButtonErrorDetail>(element, 'location-error', {
+        reason: 'Location permission request was denied',
+      });
+      return;
+    }
+    dispatchPosition(
+      element,
+      await geolocationPlugin.getCurrentPosition({
+        enableHighAccuracy: true,
+      }),
+    );
+  } catch (error) {
+    dispatch<LocationButtonErrorDetail>(element, 'location-error', {
+      reason: error instanceof Error && error.message ? error.message : 'Location request failed',
+    });
+  }
+}
+
+function browserFallback(element: HTMLElement, geolocationPlugin: GeolocationPlugin): void {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'os-location-button-fallback';
@@ -114,10 +160,7 @@ function browserFallback(element: HTMLElement): void {
   button.setAttribute('aria-label', label);
   button.addEventListener('click', () => {
     if (Capacitor.getPlatform() !== 'web') {
-      const platform = Capacitor.getPlatform();
-      dispatch<LocationButtonErrorDetail>(element, 'location-error', {
-        reason: `Location Button is unavailable on ${platform}`,
-      });
+      void requestNativeFallback(element, geolocationPlugin);
       return;
     }
     if (!navigator.geolocation) {
@@ -131,12 +174,7 @@ function browserFallback(element: HTMLElement): void {
         dispatch<LocationButtonGrantDetail>(element, 'location-grant', {
           granted: true,
         });
-        dispatch<LocationButtonPositionDetail>(element, 'location-position', {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          accuracy: position.coords.accuracy,
-          timestamp: position.timestamp,
-        });
+        dispatchPosition(element, position);
       },
       (error) => {
         if (error.code === error.PERMISSION_DENIED) {
@@ -210,10 +248,23 @@ function installFallbackStyles(): void {
       border: 0;
     }
   `;
-  document.head.append(style);
+  if (document.head) {
+    document.head.append(style);
+    return;
+  }
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      if (!document.querySelector('style[data-os-location-button]')) {
+        document.head?.append(style);
+      }
+    },
+    { once: true },
+  );
 }
 
-function registerLocationButton(): void {
+function registerLocationButton(geolocationPlugin: GeolocationPlugin): void {
   if (
     typeof document === 'undefined' ||
     typeof HTMLElement === 'undefined' ||
@@ -236,11 +287,11 @@ function registerLocationButton(): void {
       connectedCallback(): void {
         if (this.connected) return;
         this.connected = true;
-        browserFallback(this);
+        browserFallback(this, geolocationPlugin);
       }
 
       attributeChangedCallback(_name: string, oldValue: string | null, newValue: string | null): void {
-        if (this.connected && oldValue !== newValue) browserFallback(this);
+        if (this.connected && oldValue !== newValue) browserFallback(this, geolocationPlugin);
       }
     }
 
@@ -253,6 +304,7 @@ function registerLocationButton(): void {
     nativeComponent: 'os.locationButton',
     isInteractive: true,
     accessibility: 'native',
+    requiresUnobscuredSurface: true,
     observedAttributes: OBSERVED_ATTRIBUTES,
     observedStyles: OBSERVED_STYLES,
     getProperties: (element) => {
@@ -270,7 +322,7 @@ function registerLocationButton(): void {
         strokeWidth: pixelStyle(style, STYLE_PROPERTIES.strokeWidth, 0, 3, 0),
       };
     },
-    renderFallback: browserFallback,
+    renderFallback: (element) => browserFallback(element, geolocationPlugin),
     events: {
       grant: 'location-grant',
       position: 'location-position',
@@ -279,7 +331,7 @@ function registerLocationButton(): void {
   });
 }
 
-export function registerLocationButtonElement(geolocationPlugin: object): void {
+export function registerLocationButtonElement(geolocationPlugin: GeolocationPlugin): void {
   if (Capacitor.getPlatform() === 'android') {
     const dedicatedNativeIslands = Capacitor.isPluginAvailable('NativeIslands');
 
@@ -295,6 +347,7 @@ export function registerLocationButtonElement(geolocationPlugin: object): void {
               plugin: geolocationPlugin,
               methods: {
                 applyLayout: 'nativeIslandsApplyLayout',
+                applyScrollOffsets: 'nativeIslandsApplyScrollOffsets',
                 command: 'nativeIslandsCommand',
                 reset: 'nativeIslandsReset',
               },
@@ -311,5 +364,5 @@ export function registerLocationButtonElement(geolocationPlugin: object): void {
     );
   }
 
-  registerLocationButton();
+  registerLocationButton(geolocationPlugin);
 }

@@ -128,7 +128,16 @@ class GeolocationPlugin : Plugin() {
         val order = envelope.opt("order") as JSONArray
         val exclusions = envelope.opt("exclusions") as JSONObject
         val cutouts = envelope.opt("cutouts") as JSONObject
-        host.validateLayout(components, order, exclusions, cutouts)?.let { reason ->
+        val scrollContainers = envelope.opt("scrollContainers") as JSONArray
+        val motionPresentation = envelope.optBoolean("motionPresentation", false)
+        host.validateLayout(
+            components,
+            order,
+            exclusions,
+            cutouts,
+            scrollContainers,
+            motionPresentation,
+        )?.let { reason ->
             call.reject(reason, "invalid_request")
             return
         }
@@ -137,6 +146,27 @@ class GeolocationPlugin : Plugin() {
             order,
             exclusions,
             cutouts,
+            scrollContainers,
+            motionPresentation,
+            failure = { code, message -> call.reject(message, code) },
+        ) { call.resolve() }
+    }
+
+    @PluginMethod
+    fun nativeIslandsApplyScrollOffsets(call: PluginCall) {
+        val envelope = call.data
+        if (
+            !validateNativeIslands(
+                call,
+                NativeIslandsBridgeValidator.validateScrollOffsetsOperation(envelope),
+            )
+        ) {
+            return
+        }
+        nativeIslandsHost().applyScrollOffsets(
+            sequence = (envelope.opt("sequence") as Number).toLong(),
+            offsets = envelope.opt("offsets") as JSONArray,
+            settled = envelope.optBoolean("settled", false),
             failure = { code, message -> call.reject(message, code) },
         ) { call.resolve() }
     }
