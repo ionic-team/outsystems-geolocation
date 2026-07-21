@@ -162,7 +162,7 @@ private extension GeolocationPlugin {
                 }
             }
             .sink(receiveValue: { [weak self] position in
-                self?.callbackManager?.sendSuccess(with: position)
+                self?.handleReceivedPosition(position)
             })
 
         timeoutCancellable = locationService?.locationTimeoutPublisher
@@ -173,6 +173,40 @@ private extension GeolocationPlugin {
                     self?.callbackManager?.sendError(.positionUnavailable)
                 }
             })
+    }
+
+    /// Routes a position received from the location service to the pending callbacks,
+    /// enforcing `maximumAge` for `getCurrentPosition` calls: a cached position older
+    /// than `maximumAge` (e.g. the system's last known location from before the device
+    /// moved) must not satisfy them, so they are kept pending while a fresh position
+    /// is acquired. Watch callbacks always receive the update.
+    func handleReceivedPosition(_ position: IONGLOCPositionModel) {
+        guard let callbackManager else { return }
+        let hasSingleLocationRequests = !callbackManager.locationCallbacks.isEmpty
+
+        if hasSingleLocationRequests, isStaleForSingleLocationRequests(position) {
+            callbackManager.sendWatchSuccess(with: position)
+            if callbackManager.watchCallbacks.isEmpty {
+                // No watch is keeping monitoring alive, so request continuous updates to
+                // obtain a fresh position; also re-arms the timeout timer, which was
+                // cancelled when the stale position was delivered.
+                locationService?.startMonitoringLocation(options: IONGLOCRequestOptionsModel(timeout: callbackManager.timeout))
+            }
+            return
+        }
+
+        callbackManager.sendSuccess(with: position)
+
+        if hasSingleLocationRequests, callbackManager.watchCallbacks.isEmpty {
+            // Stop any monitoring started above solely to satisfy the single requests.
+            locationService?.stopMonitoringLocation()
+        }
+    }
+
+    func isStaleForSingleLocationRequests(_ position: IONGLOCPositionModel) -> Bool {
+        let ageInMilliseconds = Date().timeIntervalSince1970 * 1000 - position.timestamp
+        let maximumAge = callbackManager?.maximumAge ?? 0
+        return ageInMilliseconds > max(maximumAge, Constants.SingleLocationRequest.freshnessThresholdInMilliseconds)
     }
 
     func requestLocationAuthorisation(type requestType: IONGLOCAuthorisationRequestType) {

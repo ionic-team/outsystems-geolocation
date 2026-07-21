@@ -2,7 +2,16 @@ enum Constants {
     enum Arguments {
         static let enableHighAccuracy = "enableHighAccuracy"
         static let id = "id"
+        static let maximumAge = "maximumAge"
         static let timeout = "timeout"
+    }
+
+    enum SingleLocationRequest {
+        /// A position younger than this is treated as a live fix rather than a cached one,
+        /// regardless of `maximumAge`. CLLocation timestamps lag delivery by the acquisition
+        /// time, so `maximumAge: 0` (the default, meaning "no cached positions") must still
+        /// accept freshly acquired fixes.
+        static let freshnessThresholdInMilliseconds: Double = 5000
     }
 
     enum AuthorisationStatus {
