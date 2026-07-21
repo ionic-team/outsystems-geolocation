@@ -149,10 +149,16 @@ function browserFallback(element: HTMLElement, geolocationPlugin: GeolocationPlu
   button.className = 'os-location-button-fallback';
   const normalizedTextType = textType(element);
   const label = TEXT_LABELS[normalizedTextType];
-  const icon = document.createElement('span');
-  icon.className = 'os-location-button-fallback__icon';
+  const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  icon.classList.add('os-location-button-fallback__icon');
+  icon.setAttribute('viewBox', '0 0 24 24');
   icon.setAttribute('aria-hidden', 'true');
-  icon.textContent = '⌖';
+  const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  iconPath.setAttribute(
+    'd',
+    'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8.94 3A9.01 9.01 0 0 0 13 3.06V1h-2v2.06A9.01 9.01 0 0 0 3.06 11H1v2h2.06A9.01 9.01 0 0 0 11 20.94V23h2v-2.06A9.01 9.01 0 0 0 20.94 13H23v-2h-2.06ZM12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z',
+  );
+  icon.append(iconPath);
   const text = document.createElement('span');
   text.className = normalizedTextType === 'none' ? 'os-location-button-fallback__visually-hidden' : '';
   text.textContent = label;
@@ -232,8 +238,10 @@ function installFallbackStyles(): void {
 
     .os-location-button-fallback__icon {
       color: var(--os-location-button-icon-color, currentColor);
-      font-size: 1.25rem;
-      line-height: 1;
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+      flex: 0 0 auto;
+      fill: currentColor;
     }
 
     .os-location-button-fallback__visually-hidden {
