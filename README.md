@@ -74,12 +74,15 @@ os-location-button {
   border-color: #000000;
   border-width: 1px;
   border-radius: 16px;
+  --os-location-button-pressed-corner-radius: 12px;
+  --os-location-button-clickable-padding: 6px;
   z-index: 2;
 }
 ```
 
 The native button supports opaque hexadecimal and RGB colors. Border width supports
-`0px` through `3px`; border radius supports `0px` through `68px`.
+`0px` through `3px`; both corner radii support `0px` through `68px`. Clickable
+padding is clamped to the Android-supported range of `4px` through `8px`.
 
 ## API
 

@@ -46,6 +46,8 @@ const STYLE_PROPERTIES = {
   iconTint: '--os-location-button-icon-color',
   strokeColor: 'border-top-color',
   strokeWidth: 'border-top-width',
+  pressedCornerRadius: '--os-location-button-pressed-corner-radius',
+  clickablePadding: '--os-location-button-clickable-padding',
 } as const;
 const OBSERVED_ATTRIBUTES = ['text-type'];
 const OBSERVED_STYLES = [
@@ -54,6 +56,8 @@ const OBSERVED_STYLES = [
   STYLE_PROPERTIES.iconTint,
   STYLE_PROPERTIES.strokeColor,
   STYLE_PROPERTIES.strokeWidth,
+  STYLE_PROPERTIES.pressedCornerRadius,
+  STYLE_PROPERTIES.clickablePadding,
   'border-top-left-radius',
 ];
 
@@ -95,6 +99,19 @@ function pixelStyle(
   return Number.isFinite(number) && number >= minimum && number <= maximum ? number : fallback;
 }
 
+function clampedPixelStyle(
+  style: CSSStyleDeclaration,
+  name: string,
+  minimum: number,
+  maximum: number,
+  fallback: number,
+): number {
+  const value = style.getPropertyValue(name).trim();
+  if (!value.endsWith('px')) return fallback;
+  const number = Number.parseFloat(value);
+  return Number.isFinite(number) ? Math.min(maximum, Math.max(minimum, number)) : fallback;
+}
+
 function dispatch<T>(element: HTMLElement, type: string, detail: T): void {
   element.dispatchEvent(new CustomEvent(type, { bubbles: true, composed: true, detail }));
 }
@@ -106,6 +123,12 @@ interface LocationPosition {
     accuracy: number;
   };
   timestamp: number;
+}
+
+interface LocationButtonCarrier extends GeolocationPlugin {
+  nativeIslandsLocationButtonCapabilities(): Promise<{
+    requiresUnobscuredSurface?: boolean;
+  }>;
 }
 
 function dispatchPosition(element: HTMLElement, position: LocationPosition): void {
@@ -144,6 +167,7 @@ async function requestNativeFallback(element: HTMLElement, geolocationPlugin: Ge
 }
 
 function browserFallback(element: HTMLElement, geolocationPlugin: GeolocationPlugin): void {
+  element.dataset.osLocationButtonFallbackFace = '';
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'os-location-button-fallback';
@@ -151,12 +175,12 @@ function browserFallback(element: HTMLElement, geolocationPlugin: GeolocationPlu
   const label = TEXT_LABELS[normalizedTextType];
   const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   icon.classList.add('os-location-button-fallback__icon');
-  icon.setAttribute('viewBox', '0 0 24 24');
+  icon.setAttribute('viewBox', '0 0 960 960');
   icon.setAttribute('aria-hidden', 'true');
   const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   iconPath.setAttribute(
     'd',
-    'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8.94 3A9.01 9.01 0 0 0 13 3.06V1h-2v2.06A9.01 9.01 0 0 0 3.06 11H1v2h2.06A9.01 9.01 0 0 0 11 20.94V23h2v-2.06A9.01 9.01 0 0 0 20.94 13H23v-2h-2.06ZM12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z',
+    'M440 918v-80q-125-14-214.5-103.5T122 520H42v-80h80q14-125 103.5-214.5T440 122V42h80v80q125 14 214.5 103.5T838 440h80v80h-80q-14 125-103.5 214.5T520 838v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560 480q0-33-23.5-56.5T480 400q-33 0-56.5 23.5T400 480q0 33 23.5 56.5T480 560Z',
   );
   icon.append(iconPath);
   const text = document.createElement('span');
@@ -219,7 +243,15 @@ function installFallbackStyles(): void {
       color: #ffffff;
     }
 
+    :where([data-os-location-button-fallback-face]) {
+      background-clip: text !important;
+      border-image-source: linear-gradient(transparent, transparent) !important;
+      border-image-slice: 1 !important;
+    }
+
     .os-location-button-fallback {
+      position: relative;
+      isolation: isolate;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -228,18 +260,44 @@ function installFallbackStyles(): void {
       block-size: 100%;
       min-inline-size: 3rem;
       min-block-size: 3rem;
-      padding-inline: 1rem;
-      border: 0;
+      padding-inline: calc(1rem + clamp(4px, var(--os-location-button-clickable-padding, 6px), 8px));
+      border: inherit;
+      border-image-source: linear-gradient(transparent, transparent);
+      border-image-slice: 1;
       border-radius: inherit;
-      background: transparent;
+      background-color: inherit;
+      background-clip: text;
       color: inherit;
-      font: 600 1rem/1 system-ui, sans-serif;
+      font: 500 0.875rem/1.25rem Roboto, system-ui, sans-serif;
+      letter-spacing: 0.007142857em;
+    }
+
+    .os-location-button-fallback::before {
+      content: '';
+      position: absolute;
+      inset: clamp(4px, var(--os-location-button-clickable-padding, 6px), 8px);
+      z-index: 0;
+      box-sizing: border-box;
+      border-width: inherit;
+      border-style: inherit;
+      border-color: inherit;
+      border-radius: inherit;
+      background-color: inherit;
+    }
+
+    .os-location-button-fallback:active::before {
+      border-radius: clamp(0px, var(--os-location-button-pressed-corner-radius, 12px), 68px);
+    }
+
+    .os-location-button-fallback > * {
+      position: relative;
+      z-index: 1;
     }
 
     .os-location-button-fallback__icon {
       color: var(--os-location-button-icon-color, currentColor);
-      inline-size: 1.5rem;
-      block-size: 1.5rem;
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
       flex: 0 0 auto;
       fill: currentColor;
     }
@@ -272,7 +330,18 @@ function installFallbackStyles(): void {
   );
 }
 
-function registerLocationButton(geolocationPlugin: GeolocationPlugin): void {
+async function requiresUnobscuredSurface(geolocationPlugin: GeolocationPlugin): Promise<boolean> {
+  const carrier = geolocationPlugin as LocationButtonCarrier;
+  if (typeof carrier.nativeIslandsLocationButtonCapabilities !== 'function') return true;
+  try {
+    const capabilities = await carrier.nativeIslandsLocationButtonCapabilities();
+    return capabilities.requiresUnobscuredSurface !== false;
+  } catch {
+    return true;
+  }
+}
+
+function registerLocationButton(geolocationPlugin: GeolocationPlugin, protectedSurface: boolean): void {
   if (
     typeof document === 'undefined' ||
     typeof HTMLElement === 'undefined' ||
@@ -312,7 +381,7 @@ function registerLocationButton(geolocationPlugin: GeolocationPlugin): void {
     nativeComponent: 'os.locationButton',
     isInteractive: true,
     accessibility: 'native',
-    requiresUnobscuredSurface: true,
+    requiresUnobscuredSurface: protectedSurface,
     observedAttributes: OBSERVED_ATTRIBUTES,
     observedStyles: OBSERVED_STYLES,
     getProperties: (element) => {
@@ -326,8 +395,9 @@ function registerLocationButton(geolocationPlugin: GeolocationPlugin): void {
         iconTint: colorStyle(style, STYLE_PROPERTIES.iconTint, textColor),
         strokeColor: colorStyle(style, STYLE_PROPERTIES.strokeColor, '#000000'),
         cornerRadius,
-        pressedCornerRadius: Math.min(cornerRadius, 12),
+        pressedCornerRadius: pixelStyle(style, STYLE_PROPERTIES.pressedCornerRadius, 0, 68, 12),
         strokeWidth: pixelStyle(style, STYLE_PROPERTIES.strokeWidth, 0, 3, 0),
+        clickablePadding: clampedPixelStyle(style, STYLE_PROPERTIES.clickablePadding, 4, 8, 6),
       };
     },
     renderFallback: (element) => browserFallback(element, geolocationPlugin),
@@ -372,5 +442,13 @@ export function registerLocationButtonElement(geolocationPlugin: GeolocationPlug
     );
   }
 
-  registerLocationButton(geolocationPlugin);
+  if (Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'android') {
+    installFallbackStyles();
+    void requiresUnobscuredSurface(geolocationPlugin).then((protectedSurface) => {
+      registerLocationButton(geolocationPlugin, protectedSurface);
+    });
+    return;
+  }
+
+  registerLocationButton(geolocationPlugin, false);
 }
