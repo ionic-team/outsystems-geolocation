@@ -182,6 +182,23 @@ class GeolocationPlugin : Plugin() {
     }
 
     @PluginMethod
+    fun nativeIslandsPrepareScrollPresentation(call: PluginCall) {
+        if (
+            !validateNativeIslands(
+                call,
+                NativeIslandsBridgeValidator.validateScrollPresentationOperation(call.data),
+            )
+        ) {
+            return
+        }
+        if (nativeIslandsHost().prepareScrollPresentation(call.data.getJSONArray("containerIds"))) {
+            call.resolve()
+        } else {
+            call.reject("Native scroll presentation is unavailable", "internal_error")
+        }
+    }
+
+    @PluginMethod
     fun nativeIslandsCommand(call: PluginCall) {
         val envelope = call.data
         if (!validateNativeIslands(call, NativeIslandsBridgeValidator.validateCommandOperation(envelope))) {
