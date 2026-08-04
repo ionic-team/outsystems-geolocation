@@ -1,3 +1,15 @@
+# [9.0.0-next.1](https://github.com/ionic-team/capacitor-geolocation/compare/v8.2.1-next.1...v9.0.0-next.1) (2026-08-04)
+
+
+### Features
+
+* Bump major version to 9 ([#35](https://github.com/ionic-team/capacitor-geolocation/issues/35)) ([b1704df](https://github.com/ionic-team/capacitor-geolocation/commit/b1704df6ae612dd85a5cf645a39958073430c301))
+
+
+### BREAKING CHANGES
+
+* This version includes support for Capacitor 9, which requires a major version bump.
+
 ## [8.2.1-next.1](https://github.com/ionic-team/capacitor-geolocation/compare/v8.2.0...v8.2.1-next.1) (2026-07-23)
 
 
