@@ -81,7 +81,7 @@ dependencies {
         implementation project(':capacitor-android')
     }
 
-    implementation("io.ionic.libs:iongeolocation-android:2.2.1")
+    implementation("io.ionic.libs:iongeolocation-android:2.2.2")
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
 
     implementation 'com.google.code.gson:gson:2.13.2'
