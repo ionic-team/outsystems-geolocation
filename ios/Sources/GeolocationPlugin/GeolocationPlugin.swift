@@ -150,6 +150,9 @@ private extension GeolocationPlugin {
         locationCancellable = locationService?.currentLocationPublisher
             .catch { [weak self] error -> AnyPublisher<IONGLOCPositionModel, Never> in
                 print("An error was found while retrieving the location: \(error)")
+                // A failure terminates this subscription; re-bind or later callbacks are dropped. RMET-5383
+                self?.locationInitialized = false
+                self?.bindLocationPublisher()
 
                 if case IONGLOCLocationError.locationUnavailable = error {
                     print("Location unavailable (likely due to backgrounding). Keeping watch callbacks alive.")
