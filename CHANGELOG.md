@@ -1,3 +1,13 @@
+## [8.2.1](https://github.com/ionic-team/capacitor-geolocation/compare/v8.2.0...v8.2.1) (2026-08-06)
+
+
+### Bug Fixes
+
+* **android:** Only request permissions that are defined in the manifest ([#85](https://github.com/ionic-team/capacitor-geolocation/issues/85)) ([c9c4c84](https://github.com/ionic-team/capacitor-geolocation/commit/c9c4c8446efb1dacd71eaab2e9d52844ee5df020))
+* **android:** Return error when user rejects request to turn on location with `enableLocationManagerFallback=true` ([#86](https://github.com/ionic-team/capacitor-geolocation/issues/86)) ([1a2504a](https://github.com/ionic-team/capacitor-geolocation/commit/1a2504a2b50f1793089bdbf029b010980d6dbcfa))
+* improve location retrieval reliability ([f349a91](https://github.com/ionic-team/capacitor-geolocation/commit/f349a9181907815a989c491f6be519d24181d2b7))
+* **ios:** Correct error when location services are off ([#94](https://github.com/ionic-team/capacitor-geolocation/issues/94)) ([d265bcb](https://github.com/ionic-team/capacitor-geolocation/commit/d265bcb17415dd48b73b4d2f400ffbbb9e8f97a2))
+
 # [8.2.0](https://github.com/ionic-team/capacitor-geolocation/compare/v8.1.0...v8.2.0) (2026-03-31)
 
 
