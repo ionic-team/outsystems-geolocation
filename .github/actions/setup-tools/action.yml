@@ -5,13 +5,9 @@ runs:
   using: 'composite'
   steps:
     - name: Install Node.js
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@v7
       with:
-        node-version: 24 # semantic-release requires at least this version, or 22 LTS
-    # Ensure npm 11.5.1 or later is installed for Trusted publishing
-    - name: Update npm
-      shell: bash
-      run: npm install -g npm@~11.10.0
+        node-version: 24
     - name: Install dependencies
       shell: bash
       run: npm i
