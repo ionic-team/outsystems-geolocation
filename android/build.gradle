@@ -27,7 +27,9 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+if (project.extensions.findByName('kotlin') == null) {
+    apply plugin: 'kotlin-android'
+}
 if (System.getenv("CAP_PLUGIN_PUBLISH") == "true") {
     apply plugin: 'io.github.gradle-nexus.publish-plugin'
     apply from: file('../scripts/android/publish-root.gradle')
