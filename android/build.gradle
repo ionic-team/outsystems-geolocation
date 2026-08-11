@@ -29,7 +29,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-if (org.gradle.util.GradleVersion.current() < org.gradle.util.GradleVersion.version('9.1')) {
+if (project.extensions.findByName('kotlin') == null) {
     apply plugin: 'kotlin-android'
 }
 if (System.getenv("CAP_PLUGIN_PUBLISH") == "true") {
