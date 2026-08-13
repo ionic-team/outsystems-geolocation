@@ -25,6 +25,7 @@ final class GeolocationCallbackManager {
     private(set) var locationCallbacks: [CAPPluginCall]
     private(set) var watchCallbacks: [String: CAPPluginCall]
     private(set) var timeout: Int?
+    private(set) var maximumAge: Double?
     private let capacitorBridge: CAPBridgeProtocol?
 
     private var allCallbackGroups: [GeolocationCallbackGroup] {
@@ -55,6 +56,7 @@ final class GeolocationCallbackManager {
         locationCallbacks.append(call)
         let timeout = call.getInt(Constants.Arguments.timeout)
         self.timeout = timeout
+        self.maximumAge = call.getDouble(Constants.Arguments.maximumAge) ?? 0
     }
 
     func addWatchCallback(_ watchId: String, capacitorCall call: CAPPluginCall) {
@@ -105,6 +107,11 @@ final class GeolocationCallbackManager {
 
     func sendSuccess(with position: IONGLOCPositionModel) {
         createPluginResult(status: .success(position.toJSObject()))
+    }
+
+    func sendWatchSuccess(with position: IONGLOCPositionModel) {
+        guard let watchGroup = allCallbackGroups.first(where: { $0.type == .watch }) else { return }
+        send(.success(position.toJSObject()), to: watchGroup)
     }
 
     func sendError(_ call: CAPPluginCall, error: GeolocationError) {
