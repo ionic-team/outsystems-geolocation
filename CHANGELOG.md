@@ -1,3 +1,10 @@
+## [8.2.2](https://github.com/ionic-team/capacitor-geolocation/compare/v8.2.1...v8.2.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* **android:** only apply kotlin-android plugin if not already applied ([#97](https://github.com/ionic-team/capacitor-geolocation/issues/97)) ([d7024ed](https://github.com/ionic-team/capacitor-geolocation/commit/d7024ed5b4d05bbb4df4fd7c0eeaa14c824c6837))
+
 ## [8.2.1](https://github.com/ionic-team/capacitor-geolocation/compare/v8.2.0...v8.2.1) (2026-08-06)
 
 
