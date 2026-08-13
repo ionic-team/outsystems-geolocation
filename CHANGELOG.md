@@ -1,3 +1,12 @@
+# [9.0.0-next.2](https://github.com/ionic-team/capacitor-geolocation/compare/v9.0.0-next.1...v9.0.0-next.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* **android:** only apply kotlin-android plugin if not already applied ([#97](https://github.com/ionic-team/capacitor-geolocation/issues/97)) ([d7024ed](https://github.com/ionic-team/capacitor-geolocation/commit/d7024ed5b4d05bbb4df4fd7c0eeaa14c824c6837))
+* improve location retrieval reliability ([f349a91](https://github.com/ionic-team/capacitor-geolocation/commit/f349a9181907815a989c491f6be519d24181d2b7))
+* **ios:** Correct error when location services are off ([#94](https://github.com/ionic-team/capacitor-geolocation/issues/94)) ([d265bcb](https://github.com/ionic-team/capacitor-geolocation/commit/d265bcb17415dd48b73b4d2f400ffbbb9e8f97a2))
+
 ## [8.2.2](https://github.com/ionic-team/capacitor-geolocation/compare/v8.2.1...v8.2.2) (2026-08-13)
 
 
