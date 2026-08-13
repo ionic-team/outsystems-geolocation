@@ -130,7 +130,8 @@ private extension GeolocationPlugin {
 
                 switch status {
                 case .denied:
-                    self.onLocationPermissionNotGranted(error: .permissionDenied)
+                    let error: GeolocationError = self.locationService?.areLocationServicesEnabled() == false ? .locationServicesDisabled : .permissionDenied
+                    self.onLocationPermissionNotGranted(error: error)
                 case .notDetermined:
                     self.requestLocationAuthorisation(type: .whenInUse)
                 case .restricted:
@@ -149,6 +150,9 @@ private extension GeolocationPlugin {
         locationCancellable = locationService?.currentLocationPublisher
             .catch { [weak self] error -> AnyPublisher<IONGLOCPositionModel, Never> in
                 print("An error was found while retrieving the location: \(error)")
+                // A failure terminates this subscription; re-bind or later callbacks are dropped. RMET-5383
+                self?.locationInitialized = false
+                self?.bindLocationPublisher()
 
                 if case IONGLOCLocationError.locationUnavailable = error {
                     print("Location unavailable (likely due to backgrounding). Keeping watch callbacks alive.")
@@ -233,7 +237,12 @@ private extension GeolocationPlugin {
 
         switch locationService?.authorisationStatus {
         case .authorisedAlways, .authorisedWhenInUse: onLocationPermissionGranted()
-        case .denied: callbackManager?.sendError(.permissionDenied)
+        case .denied:
+            if locationService?.areLocationServicesEnabled() == false {
+                callbackManager?.sendError(.locationServicesDisabled)
+            } else {
+                callbackManager?.sendError(.permissionDenied)
+            }
         case .restricted: callbackManager?.sendError(.permissionRestricted)
         default: break
         }
