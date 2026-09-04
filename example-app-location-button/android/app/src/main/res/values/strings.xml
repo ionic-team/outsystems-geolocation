@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CAP-GLOC Sample</string>
+    <string name="title_activity_main">CAP-GLOC Sample</string>
+    <string name="package_name">com.capacitorjs.exampleucapp.plugins.geolocation</string>
+    <string name="custom_url_scheme">com.capacitorjs.exampleucapp.plugins.geolocation</string>
+</resources>

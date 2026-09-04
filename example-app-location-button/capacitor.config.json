@@ -1,0 +1,11 @@
+{
+  "appId": "com.capacitorjs.exampleucapp.plugins.geolocation",
+  "appName": "CAP-GLOC Location Button Sample",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

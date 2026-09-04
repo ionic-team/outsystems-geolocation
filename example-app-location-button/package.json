@@ -1,0 +1,28 @@
+{
+  "name": "capacitor-geolocation-location-button-example-app",
+  "version": "1.0.0",
+  "description": "An Example App for testing the os-location-button element (RMET-5199)",
+  "main": "index.js",
+  "keywords": [
+    "capacitor",
+    "mobile"
+  ],
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@capacitor/android": "next",
+    "@capacitor/core": "next",
+    "@capacitor/ios": "next",
+    "@capacitor/splash-screen": "next",
+    "@capacitor/geolocation": "file:../"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "next",
+    "vite": "^7.2.4"
+  },
+  "author": "",
+  "license": "ISC"
+}
