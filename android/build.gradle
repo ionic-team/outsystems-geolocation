@@ -82,10 +82,16 @@ repositories {
     mavenCentral()
 }
 
-def locationButtonAar =
+/*def locationButtonAar =
     locationButtonCompileSdk >= 37
         ? file('libs/IONGeolocationLib-api37-release.aar')
         : file('libs/IONGeolocationLib-compat-release.aar')
+*/
+// TODO - replace geolocation native library with release aar or maven central dependency
+def locationButtonAar =
+    locationButtonCompileSdk >= 37
+        ? file('libs/IONGeolocationLibApi37-debug.aar')
+        : file('libs/IONGeolocationLib-debug.aar')
 def nativeIslandsAar = file('libs/ionnativeislands-android-release.aar')
 def localRuntimeAars = files(locationButtonAar, nativeIslandsAar)
 

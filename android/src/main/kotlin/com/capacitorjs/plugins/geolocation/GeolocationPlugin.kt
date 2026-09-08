@@ -81,7 +81,7 @@ class GeolocationPlugin : Plugin() {
                 results[Manifest.permission.ACCESS_FINE_LOCATION] == true,
             )
         }
-        IONGLOCLocationButtonRegistry.register(activity, locationButtonPermissionRequester)
+        IONGLOCLocationButtonRegistry.register(activity, controller, locationButtonPermissionRequester)
     }
 
     private fun requestLocationButtonPermission(callback: (Boolean) -> Unit) {
